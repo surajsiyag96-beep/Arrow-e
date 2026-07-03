@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Arrow Escape: The Maze</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Top Dashboard -->
+        <header id="dashboard">
+            <div class="stat-group">
+                <div class="stat" id="stat-level">Level: <span id="level-val">1</span></div>
+                <div class="stat" id="stat-points"><span class="icon">🪙</span> <span id="points-val">0</span></div>
+            </div>
+            <div class="stat-group">
+                <div class="stat" id="stat-hearts"><span class="icon">❤️</span> <span id="hearts-val">5</span></div>
+                <div class="stat" id="stat-streak">Streak: <span id="streak-val">0</span>🔥</div>
+            </div>
+            <div class="stat-group full-width">
+                <div class="stat" id="stat-time">Time: <span id="time-val">00:00</span></div>
+                <div class="progress-bar-container">
+                    <div id="progress-bar"></div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Game Area -->
+        <main id="game-container">
+            <canvas id="gameCanvas"></canvas>
+            
+            <!-- Confetti / Particles Canvas -->
+            <canvas id="fxCanvas"></canvas>
+            
+            <!-- Ad Placeholder: Top/Interstitial -->
+            <div class="ad-placeholder" id="ad-top">
+                <p>Advertisement Placeholder</p>
+            </div>
+        </main>
+
+        <!-- Modals -->
+        <!-- Start Screen -->
+        <div class="modal" id="modal-start" style="display: flex;">
+            <div class="modal-content">
+                <h1>Arrow Escape</h1>
+                <p>Follow the correct path to the end!</p>
+                <button class="btn glow-btn" id="btn-start">Play Now</button>
+            </div>
+        </div>
+
+        <!-- Level Complete Modal -->
+        <div class="modal" id="modal-level-complete" style="display: none;">
+            <div class="modal-content">
+                <h2>Level Complete!</h2>
+                <p>+2 Points 🪙</p>
+                <div class="ad-placeholder small-ad">Ad Placeholder</div>
+                <button class="btn glow-btn" id="btn-next-level">Next Level</button>
+            </div>
+        </div>
+
+        <!-- Game Over Modal -->
+        <div class="modal" id="modal-game-over" style="display: none;">
+            <div class="modal-content">
+                <h2>Out of Hearts!</h2>
+                <p>You made too many wrong moves.</p>
+                <div class="button-group">
+                    <button class="btn glow-btn watch-ad-btn" id="btn-watch-ad">
+                        ▶ Watch Ad for 3 ❤️
+                    </button>
+                    <button class="btn" id="btn-restart">Restart Level</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Rewards Modal -->
+        <div class="modal" id="modal-rewards" style="display: none;">
+            <div class="modal-content">
+                <h2>Rewards</h2>
+                <p>Redeem your points for bonuses.</p>
+                <p>Your points: <span id="reward-points-val">0</span> 🪙</p>
+                <p>Threshold to unlock rewards: <span id="reward-threshold">1000</span> 🪙</p>
+                <button class="btn glow-btn" id="btn-redeem" disabled>Redeem Reward</button>
+                <button class="btn" id="btn-close-rewards">Close</button>
+            </div>
+        </div>
+
+        <button id="btn-rewards-menu" class="floating-btn">🎁 Rewards</button>
+
+        <!-- Floating Text Container -->
+        <div id="floating-text-container"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
